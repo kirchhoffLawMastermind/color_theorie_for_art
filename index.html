@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Palettes de Couleurs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Générateur de Palettes de Couleurs</h1>
+            <p>Créez des palettes harmonieuses basées sur la théorie des couleurs</p>
+        </header>
+
+        <main>
+            <!-- Section des contrôles -->
+            <section class="controls-section">
+                <div class="controls-grid">
+                    <!-- Couleurs de base -->
+                    <div class="control-group">
+                        <h3>Couleurs de Base</h3>
+                        <div class="color-inputs">
+                            <div class="color-input-wrapper">
+                                <label for="color1">Couleur 1</label>
+                                <input type="color" id="color1" value="#3498db">
+                                <button class="lock-btn" data-color="1">🔓</button>
+                            </div>
+                            <div class="color-input-wrapper">
+                                <label for="color2">Couleur 2 (optionnel)</label>
+                                <input type="color" id="color2" value="#e74c3c">
+                                <button class="lock-btn" data-color="2">🔓</button>
+                                <button id="toggleColor2" class="toggle-btn">Désactiver</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type d'harmonie -->
+                    <div class="control-group">
+                        <h3>Type d'Harmonie</h3>
+                        <select id="harmonyType">
+                            <option value="analogous">Analogue</option>
+                            <option value="complementary">Complémentaire</option>
+                            <option value="triadic">Triadique</option>
+                            <option value="monochromatic">Monochromatique</option>
+                            <option value="tetradic">Tétradique</option>
+                        </select>
+                    </div>
+
+                    <!-- Paramètres visuels -->
+                    <div class="control-group">
+                        <h3>Paramètres Visuels</h3>
+                        <div class="slider-group">
+                            <label for="saturation">
+                                Saturation: <span id="saturationValue">70%</span>
+                            </label>
+                            <input type="range" id="saturation" min="10" max="100" value="70">
+                        </div>
+                        <div class="slider-group">
+                            <label for="lightness">
+                                Luminosité: <span id="lightnessValue">50%</span>
+                            </label>
+                            <input type="range" id="lightness" min="20" max="80" value="50">
+                        </div>
+                        <div class="slider-group">
+                            <label for="exposure">
+                                Exposition: <span id="exposureValue">50%</span>
+                            </label>
+                            <input type="range" id="exposure" min="0" max="100" value="50">
+                        </div>
+                    </div>
+
+                    <!-- Ambiance -->
+                    <div class="control-group">
+                        <h3>Ambiance</h3>
+                        <select id="mood">
+                            <option value="calm">Calme</option>
+                            <option value="dramatic">Dramatique</option>
+                            <option value="joyful">Joyeuse</option>
+                            <option value="neutral">Neutre</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="generatePalette" class="btn-primary">Générer la Palette</button>
+                    <button id="randomize" class="btn-secondary">Couleurs Aléatoires</button>
+                    <label class="live-preview-toggle">
+                        <input type="checkbox" id="livePreview" checked>
+                        Aperçu en temps réel
+                    </label>
+                </div>
+            </section>
+
+            <!-- Section d'affichage -->
+            <section class="palette-section">
+                <h3>Palette Générée</h3>
+                <div id="paletteDisplay" class="palette-container">
+                    <!-- Les couleurs seront générées ici -->
+                </div>
+
+                <!-- Informations sur la palette -->
+                <div id="paletteInfo" class="palette-info">
+                    <div class="color-roles">
+                        <h4>Répartition des couleurs :</h4>
+                        <div class="role-legend">
+                            <span class="role-item"><strong>Dominante (60%)</strong> - Couleur principale</span>
+                            <span class="role-item"><strong>Secondaire (30%)</strong> - Couleur de support</span>
+                            <span class="role-item"><strong>Accent (10%)</strong> - Couleur d'emphase</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Variantes -->
+            <section class="variants-section">
+                <h3>Variantes</h3>
+                <div class="variants-buttons">
+                    <button id="generateVariant1" class="btn-variant">Variante 1</button>
+                    <button id="generateVariant2" class="btn-variant">Variante 2</button>
+                    <button id="generateVariant3" class="btn-variant">Variante 3</button>
+                </div>
+                <div id="variantsDisplay" class="variants-container">
+                    <!-- Les variantes seront affichées ici -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
